@@ -98,7 +98,8 @@ class BasePage(object):
         for element in elements:
             selector = self.context.current_page.webElements.__dict__.get(element)
             if selector is None:
-                raise TypeError(f' The {element} selector name is not created')
-            web_element = context.browser.find_elements(selector)
-            validation_list.append(len(web_element) > 0)
+                validation_list.append(False)
+            else:
+                web_element = context.browser.find_elements(selector)
+                validation_list.append(len(web_element) > 0)
         return validation_list

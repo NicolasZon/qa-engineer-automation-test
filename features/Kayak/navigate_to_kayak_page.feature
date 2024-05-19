@@ -6,19 +6,20 @@ Feature: Validate element created dropdown column
     Given I navigate to the kayak main page
     Then I should be in the "home" page
     And The page "should" contain the next elements
-      | name                   | type   |
-      | name_tag               | input  |
-      | name_dropdown_column   | input  |
-      | search_tag             | input  |
-      | cancel                 | button |
-      | create_column_disabled | button |
+      | name                   | type     |
+      | search                 | button   |
+      | main                   | form     |
+      | signin                 | button   |
+      | search                 | section  |
+      | plan                   | section  |
+      | trips                  | section  |
 
   Scenario: Validate URL of Home page
     Given I navigate to the kayak main page
     Then I should be in the "home" page
-    And The url page should be equal to the next "https://www.kayak.com/" url
+    And The url page should be equal to the next "https://www.kayak.com.co/" url
 
-    Scenario Outline: Navigate between countries and validate the URL
+  Scenario Outline: Navigate between countries and validate the URL
       Given I navigate to the kayak main page
       Then I should be in the "home" page
       When I navigate to the "<url>" URL

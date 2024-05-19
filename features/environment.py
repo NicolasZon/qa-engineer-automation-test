@@ -1,12 +1,16 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+from lib.pages.carspage import CarsPage
 from lib.pages.basepage import BasePage
+from lib.pages.citybreakspage import CitybreaksPage
+from lib.pages.flightspage import FlightsPage
 from lib.pages.homepage import HomePage
+from lib.pages.stayspage import StaysPage
 
 
 def before_all(context):
     driver = set_selenium_driver(context)
-    driver.set_page_load_timeout('0.5')
+    driver.set_page_load_timeout(5)
     driver.maximize_window()
 
     context.web_driver = driver
@@ -15,6 +19,10 @@ def before_all(context):
 
     contexts = {
         'home': context.home,
+        'flights': FlightsPage(context),
+        'stays': StaysPage(context),
+        'cars': CarsPage(context),
+        'citybreaks': CitybreaksPage(context),
     }
 
     context.all_contexts = contexts

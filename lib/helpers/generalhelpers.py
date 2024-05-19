@@ -21,10 +21,7 @@ def transformation_to_element_name(table_elements):
 
 
 def transform_validation(expression):
-    final_expression = True
-    if expression != "should":
-        final_expression = False
-    return final_expression
+    return expression == "should"
 
 
 def clean_behave_list(behave_list):
